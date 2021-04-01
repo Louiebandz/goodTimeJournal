@@ -42,17 +42,22 @@ app.get("/retrieve", async (req,res) => {
 	} catch (err) {
 		console.log(err);
 	}
-})
-
-
+});
 
 app.delete("/delete", cors(), async (req,res) => {
 	const username = req.query.username;
 	
 	try {
-		const template = "DELETE FROM users WHERE username=$1"; // add table
-		const response = await pool.query(template,[username]);
-		res.json({status: "deleted"});
+		const temp = "DELETE FROM journalentries WHERE journalID IN (SELECT u_id FROM journals WHERE u_id IN(SELECT id FROM users WHERE username=$1))";
+		const resp = await pool.query(temp, [username]);
+
+		const temp1 = "DELETE FROM journals WHERE u_id IN (SELECT id FROM users WHERE username=$1)";
+		const resp1 = await pool.query(temp1, [username]);
+
+		const temp2 = "DELETE FROM users WHERE username=$1";
+		const resp2 = await pool.query(temp2, [username]);
+
+		res.json({ status: "DELETED" });
 
 	} catch (err) {
 		console.log(err);
@@ -60,5 +65,5 @@ app.delete("/delete", cors(), async (req,res) => {
 });
 
 app.listen(app.get("port"), () => {
-	console.log('Server at: http://localhost:${app.get("port")}/');
+	console.log(`Server at: http://localhost:${app.get("port")}`);
 });
