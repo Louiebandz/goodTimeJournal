@@ -24,6 +24,7 @@ export default class extends Component {
           <Link href="/Login">
             <button>Login</button>
           </Link>
+
       </div>
       </div>
       </div>

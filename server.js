@@ -35,13 +35,17 @@ app.get("/", (req,res) => {
 // add things here
 // ...
 
-app.get("/retrieve", async (req,res) => {
-	try {
-		const response = await pool.query('SELECT * FROM users');
-		res.json({temp: response.rows});
-	} catch (err) {
-		console.log(err);
-	}
+app.get("/getEntry", async (req, res) => {
+  const id = req.query.u_id;
+
+  try {
+    const temp = "SELECT * FROM journalentries WHERE u_id=$1";
+    const resp = await pool.query(temp, [id]);
+
+    res.json({ status: resp.rows });
+  } catch (err) {
+    console.log(err);
+  }
 });
 
 app.delete("/delete", cors(), async (req,res) => {
