@@ -1,6 +1,7 @@
 //[label /pages/index.js]
 import Link from 'next/link';
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Sidebar from "../frontend/components/Sidebar.js"; 
 
 const linkStyle = {
   marginRight: 15
@@ -10,6 +11,14 @@ export default class extends Component {
   render () {
     return (
       <div>
+      <Sidebar> 
+        </Sidebar>
+        <br>
+        </br>
+        <br>
+        </br><br>
+        </br><br>
+        </br>
       <div>Good Time Journal HomeScreen</div>
       <div> 
       <div style={{margin:"auto auto", display:"flex"}}>
@@ -24,8 +33,10 @@ export default class extends Component {
           <Link href="/Login">
             <button>Login</button>
           </Link>
+          
       </div>
       </div>
+      
       </div>
     )
   }
