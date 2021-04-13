@@ -25,6 +25,10 @@ export default class extends Component {
             <button>Login</button>
           </Link>
 
+          <Link href="getJournals">
+            <button>Get Journals</button>
+          </Link>
+
       </div>
       </div>
       </div>

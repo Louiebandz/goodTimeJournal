@@ -68,6 +68,21 @@ app.delete("/delete", cors(), async (req,res) => {
 	}
 });
 
+app.get("/viewJournal", async (req,res) => {
+	const id = req.query.id;
+
+	try {
+		const temp = 'SELECT * FROM journals WHERE id=$1';
+		const resp = await pool.query(temp, [id]);
+		res.json({ sucess: resp.rows });
+
+	} catch (err) {
+		console.log(err);
+	}
+
+
+});
+
 app.listen(app.get("port"), () => {
 	console.log(`Server at: http://localhost:${app.get("port")}`);
 });

@@ -17,7 +17,8 @@ class Homepage extends React.Component {
 
 	render() {
 		return (
-
+			<p>hi</p>
+			<p> onChange={this.handleHomepage.bind(this)} </p>
 		)
 	}
 }
