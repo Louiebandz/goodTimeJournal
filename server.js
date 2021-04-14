@@ -72,9 +72,11 @@ app.get("/viewJournal", async (req,res) => {
 	const id = req.query.id;
 
 	try {
-		const temp = 'SELECT * FROM journals WHERE id=$1';
+
+		const temp = 'SELECT * FROM journalentries WHERE journalID IN (SELECT u_id FROM journals WHERE u_id=$1)';
 		const resp = await pool.query(temp, [id]);
-		res.json({ sucess: resp.rows });
+
+		res.json({ success: resp.rows });
 
 	} catch (err) {
 		console.log(err);

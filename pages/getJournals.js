@@ -14,7 +14,7 @@ class getJournals extends React.Component {
 	async handleId(evt) {
 		const post = await getJournal(this.state.id);
 		console.log(post);
-		this.setState({ post: post.rows });
+		this.setState({ post: post.success[0] });
 	}
 
 
@@ -26,6 +26,11 @@ class getJournals extends React.Component {
 			
 				<p><input type="text" value={this.state.id} onChange={this.handleUpdate.bind(this)} /></p>
 				<button className="button-style" onClick={this.handleId.bind(this)}>Search</button>
+
+				{this.state.post ? <div> 
+					<p>{this.state.post.entry_body}</p>
+				</div> : <p></p>}
+
 			</div>
 
 		)
