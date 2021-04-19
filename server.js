@@ -48,6 +48,21 @@ app.get("/getEntry", async (req, res) => {
   }
 });
 
+app.delete("/deleteEntry", async(req,res) => {
+	const id = req.query.journalID;
+	console.log("I'm here");
+	try {
+		const temp = "DELETE FROM journalentries WHERE journalID=$1";
+		const resp = await pool.query(temp,[id]);
+		const temp1 = "DELETE FROM journals WHERE id=$1";
+		const resp1 = await pool.query(temp1,[id]);
+
+		res.json({ status: "success" });
+	} catch (err) {
+		console.log(err);
+	}
+});
+
 app.delete("/delete", cors(), async (req,res) => {
 	const username = req.query.username;
 	
