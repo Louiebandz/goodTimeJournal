@@ -2,8 +2,10 @@ node_modules/
 npm-debug.log
 package-lock.json
 test/*.log
-.next/
+.next
 .js
 lib/
 pages/
 server.js
+Frontend/package-lock.json
+Backend/
