@@ -1,4 +1,6 @@
-node_modules
-*.next
-*.js
-*.json
+node_modules/
+.next
+.js
+lib/
+pages/
+server.js
