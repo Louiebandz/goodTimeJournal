@@ -2,7 +2,7 @@ node_modules/
 npm-debug.log
 package-lock.json
 test/*.log
-.next/static/chunks/main.js
+.next/
 .js
 lib/
 pages/
