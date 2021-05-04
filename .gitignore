@@ -2,9 +2,7 @@ node_modules/
 npm-debug.log
 package-lock.json
 test/*.log
-Frontend/
 lib/
 pages/
 server.js
 .nvm
-.Frontend/
