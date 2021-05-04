@@ -1,0 +1,27 @@
+* goodTimeJournal
+  :PROPERTIES:
+  :CUSTOM_ID: goodtimejournal
+  :END:
+
+Next.js app for users to journal their energy levels
+* Table of Contents :toc:
+- [[#goodtimejournal][goodTimeJournal]]
+- [[#getting-started][Getting Started]]
+  -  [[#installation][Installation]]
+  - [[#running-the-application][Running The Application]]
+
+* Getting Started
+**  Installation
+*** Local Installation
+#+begin_src bash
+git clone https://github.com/jhilker1/goodTimeJournal.git
+cd /path/to/goodTimeJournal
+npm install
+#+end_src
+*** Server Installation
+** Running The Application
+*** Running Locally
+#+begin_src bash
+cd /path/to/goodTimeJournal
+npm run dev
+#+end_src
