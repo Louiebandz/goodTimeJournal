@@ -6,4 +6,3 @@ test/*.log
 .js
 lib/
 pages/
-server.js
